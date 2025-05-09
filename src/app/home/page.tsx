@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 sm:p-20 gap-10 bg-[url('/firewatch_background.jpg')] dark:bg-[url('/firewatch_background_night4.png')] bg-cover bg-center bg-fixed transition-[background-image] duration-400">
+    <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 sm:p-20 gap-10 bg-[url('/firewatch_background.png')] dark:bg-[url('/firewatch_background_night4.png')] bg-cover bg-center bg-fixed transition-[background-image] duration-400">
       <>
         <h1 className="text-6xl font-bold bg-gradient-to-br from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent p-4 font-serif">
           some things i&apos;ve built.
