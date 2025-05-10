@@ -3,9 +3,9 @@
 import * as React from "react";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
+import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
-// import { Icons } from "@/components/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -64,7 +64,7 @@ export default function Navbar({
 }) {
   return (
     <div className="flex justify-between items-center p-4">
-      <NavigationMenu className="max-w-full w-full flex justify-between pb-4">
+      <NavigationMenu className="max-w-full w-full flex justify-between pb-3 border-b border-gray-200 dark:border-white">
         <NavigationMenuList className="pl-4">
           <CiMenuFries
             className="size-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full p-2"
@@ -120,26 +120,25 @@ export default function Navbar({
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/docs" className={navigationMenuTriggerStyle()}>
-              Documentation
+            <Link href="/projects" className={navigationMenuTriggerStyle()}>
+              Projects
             </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
         <NavigationMenuList>
           <ThemeToggle />
-          <NavigationMenuItem>
-            <Link href="/docs" className={navigationMenuTriggerStyle()}>
-              Contact
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link
-              href="https://www.linkedin.com/in/josh-kung"
-              className={navigationMenuTriggerStyle()}
-            >
-              LinkedIn
-            </Link>
-          </NavigationMenuItem>
+          <Link
+            href="mailto:joshuahkung@gmail.com"
+            className={`ml-4 ${navigationMenuTriggerStyle()}`}
+          >
+            <FaEnvelope className="size-5" />
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/josh-kung"
+            className={`hover:text-blue-400 ${navigationMenuTriggerStyle()}`}
+          >
+            <FaLinkedin className="size-5" />
+          </Link>
         </NavigationMenuList>
       </NavigationMenu>
     </div>
