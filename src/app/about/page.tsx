@@ -50,7 +50,7 @@ export default function Home() {
             </a>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={0}
           speed={0.5}
           factor={1}
@@ -62,13 +62,21 @@ export default function Home() {
             backgroundRepeat: "repeat-x",
             zIndex: 1,
           }}
-        ></ParallaxLayer>
+        ></ParallaxLayer> */}
+        <ParallaxLayer offset={0} speed={0.5} factor={1} style={{ zIndex: 0 }}>
+          <div className="w-full h-full bg-[url('/firewatch_background_extended_transparent_2.png')] dark:bg-[url('/firewatch_background_extended_night.png')] bg-cover bg-center bg-repeat-x z-[1]" />
+        </ParallaxLayer>
+        <ParallaxLayer offset={0} speed={0.75} factor={1} style={{ zIndex: 2 }}>
+          <div className="w-full h-full bg-[url('/firewatch_background_trees.png')] dark:bg-[url('/firewatch_background_night_trees.png')] bg-cover bg-center bg-repeat-x z-[1]" />
+        </ParallaxLayer>
         <ParallaxLayer
-          offset={0.8}
-          speed={0.5}
+          offset={0.95}
+          speed={0.75}
           factor={2}
-          style={{ backgroundColor: "#290452", zIndex: 0 }}
-        ></ParallaxLayer>
+          style={{ backgroundColor: "#290452", zIndex: 1 }}
+        >
+          <div className="w-full h-full bg-[#290452] dark:bg-[#08081d] " />
+        </ParallaxLayer>
       </Parallax>
     </div>
   );
