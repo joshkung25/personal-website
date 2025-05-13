@@ -50,19 +50,6 @@ export default function Home() {
             </a>
           </div>
         </ParallaxLayer>
-        {/* <ParallaxLayer
-          offset={0}
-          speed={0.5}
-          factor={1}
-          style={{
-            backgroundImage:
-              "url('/firewatch_background_extended_transparent_2.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "repeat-x",
-            zIndex: 1,
-          }}
-        ></ParallaxLayer> */}
         <ParallaxLayer offset={0} speed={0.5} factor={1} style={{ zIndex: 0 }}>
           <div className="w-full h-full bg-[url('/firewatch_background_extended_transparent_2.png')] dark:bg-[url('/firewatch_background_extended_night.png')] bg-cover bg-center bg-repeat-x z-[1]" />
         </ParallaxLayer>

@@ -1,11 +1,5 @@
 import React from "react";
 import ImageCard from "../image-card";
-import { Barriecito } from "next/font/google";
-
-const barriecito = Barriecito({
-  weight: "400",
-  subsets: ["latin"],
-});
 
 export default function Projects() {
   return (
