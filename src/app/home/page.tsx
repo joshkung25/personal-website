@@ -16,7 +16,7 @@ export default function Home() {
           offset={0}
           speed={2}
           className="mt-60"
-          style={{ zIndex: 2 }}
+          style={{ zIndex: 3 }}
         >
           <div className="flex flex-col items-center justify-center">
             <h2 className={`text-2xl -mb-4 ${roboto.className}`}>Josh Kung</h2>
@@ -31,7 +31,7 @@ export default function Home() {
           offset={0}
           speed={1.75}
           className="flex flex-col items-center mt-90"
-          style={{ zIndex: 2 }}
+          style={{ zIndex: 3 }}
         >
           <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
