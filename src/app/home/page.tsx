@@ -2,6 +2,7 @@
 import React from "react";
 import { Roboto } from "next/font/google";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import ProjectSection from "../project-section";
 
 const roboto = Roboto({
   weight: "400",
@@ -60,9 +61,11 @@ export default function Home() {
           offset={0.95}
           speed={0.75}
           factor={2}
-          style={{ backgroundColor: "#290452", zIndex: 1 }}
+          style={{ zIndex: 1 }}
         >
-          <div className="w-full h-full bg-[#290452] dark:bg-[#08081d] " />
+          <div className="w-full h-full flex flex-col bg-[#290452] dark:bg-[#08081d]">
+            <ProjectSection />
+          </div>
         </ParallaxLayer>
       </Parallax>
     </div>
