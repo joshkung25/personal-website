@@ -31,11 +31,11 @@ function MenuItem({ label, path }: MenuItemProps) {
 export default function Sidebar({ collapsed = true }: { collapsed: boolean }) {
   return (
     <div
-      className={`flex flex-col pt-8 p-4 outline outline-1 outline-gray-200 
+      className={`flex flex-col sm:pt-8 sm:p-4 outline outline-1 outline-gray-200 
         transition-all duration-500 ease-in-out ${
           collapsed
-            ? "opacity-0 w-0 md:w-0 md:p-0"
-            : "w-full md:w-64 opacity-100"
+            ? "opacity-0 w-0 max-h-0 p-0 md:p-0"
+            : "opacity-100 w-full max-h-[1000px] md:w-64"
         }`}
     >
       <MenuItem label="Home" path="/home" />

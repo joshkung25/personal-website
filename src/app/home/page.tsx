@@ -20,9 +20,11 @@ export default function Home() {
           style={{ zIndex: 3 }}
         >
           <div className="flex flex-col items-center justify-center">
-            <h2 className={`text-2xl -mb-4 ${roboto.className}`}>Josh Kung</h2>
+            <h2 className={`text-xl sm:text-2xl -mb-4 ${roboto.className}`}>
+              Josh Kung
+            </h2>
             <h1
-              className={`text-6xl font-bold bg-gradient-to-br from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent p-4`}
+              className={`text-4xl sm:text-6xl font-bold bg-gradient-to-br from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent p-4`}
             >
               Some Things I&apos;ve Built.
             </h1>
@@ -54,15 +56,10 @@ export default function Home() {
         <ParallaxLayer offset={0} speed={0.5} factor={1} style={{ zIndex: 0 }}>
           <div className="w-full h-full bg-[url('/firewatch_background_extended_transparent_2.png')] dark:bg-[url('/firewatch_background_extended_night.png')] bg-cover bg-center bg-repeat-x z-[1]" />
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.75} factor={1} style={{ zIndex: 2 }}>
+        <ParallaxLayer offset={0} speed={1} factor={1} style={{ zIndex: 2 }}>
           <div className="w-full h-full bg-[url('/firewatch_background_trees.png')] dark:bg-[url('/firewatch_background_night_trees.png')] bg-cover bg-center bg-repeat-x z-[1]" />
         </ParallaxLayer>
-        <ParallaxLayer
-          offset={0.95}
-          speed={0.75}
-          factor={2}
-          style={{ zIndex: 1 }}
-        >
+        <ParallaxLayer offset={0.95} speed={1} factor={2} style={{ zIndex: 1 }}>
           <div className="w-full h-full flex flex-col bg-[#290452] dark:bg-[#08081d]">
             <ProjectSection />
           </div>

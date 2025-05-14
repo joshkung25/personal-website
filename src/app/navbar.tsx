@@ -65,11 +65,11 @@ export default function Navbar({
   return (
     <div className="flex justify-between items-center p-4">
       <NavigationMenu className="max-w-full w-full flex justify-between pb-3 border-b border-gray-200 dark:border-white">
-        <NavigationMenuList className="pl-4">
-          <CiMenuFries
-            className="size-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full p-2"
-            onClick={() => setCollapsed(!collapsed)}
-          />
+        <CiMenuFries
+          className="size-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full p-2"
+          onClick={() => setCollapsed(!collapsed)}
+        />
+        <NavigationMenuList className="pl-4 hidden sm:flex">
           <NavigationMenuItem>
             <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
             <NavigationMenuContent>
