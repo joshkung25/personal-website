@@ -59,7 +59,7 @@ export default function Home() {
         <ParallaxLayer offset={0} speed={1} factor={1} style={{ zIndex: 2 }}>
           <div className="w-full h-full bg-[url('/firewatch_background_trees.png')] dark:bg-[url('/firewatch_background_night_trees.png')] bg-cover bg-center bg-repeat-x z-[1]" />
         </ParallaxLayer>
-        <ParallaxLayer offset={0.95} speed={1} factor={2} style={{ zIndex: 1 }}>
+        <ParallaxLayer offset={0.99} speed={1} factor={2} style={{ zIndex: 1 }}>
           <div className="w-full h-full flex flex-col bg-[#290452] dark:bg-[#08081d]">
             <ProjectSection />
           </div>

@@ -9,7 +9,7 @@ export default function ImageCard({ image }: { image: string }) {
         alt="Image Card"
         width={250}
         height={250}
-        className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px]"
+        className="w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] md:w-[200px] md:h-[200px]"
       />
     </div>
   );

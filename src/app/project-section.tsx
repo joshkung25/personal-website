@@ -3,7 +3,7 @@ import ImageCard from "./image-card";
 
 export default function ProjectSection() {
   return (
-    <div className="flex flex-col items-center gap-16 border-2 border-blue-500 px-4 sm:px-20">
+    <div className="flex flex-col items-center gap-16 px-4 sm:px-20">
       <h1 className="text-white text-4xl font-bold mt-20">Projects</h1>
       <ProjectCard
         title="Just Shirley"
