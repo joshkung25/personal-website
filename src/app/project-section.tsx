@@ -17,7 +17,7 @@ I’m a builder at heart with a passion for creating applications that are not o
           </div>
           <GrayContainer
             title="Gray Container"
-            description="This is a gray container with the same styling as ProjectCard."
+            description="This is a gray container."
           />
         </div>
       </div>
@@ -30,12 +30,12 @@ I’m a builder at heart with a passion for creating applications that are not o
           </div>
           <GrayContainer
             title="Gray Container"
-            description="This is a gray container with the same styling as ProjectCard."
+            description="This is a gray container."
           />
         </div>
         <GrayContainer
           title="Gray Container"
-          description="This is a gray container with the same styling as ProjectCard."
+          description="This is a gray container."
         />
       </div>
     </div>
