@@ -12,7 +12,12 @@ I’m a builder at heart with a passion for creating applications that are not o
         />
         <div className="flex flex-row gap-2">
           <div className="flex flex-col w-3/4 gap-2 items-center">
-            <ImageCard image="/justshirleylogo2.png" />
+            <ImageCard
+              image="/justshirleylogo2.png"
+              title="Just Shirley"
+              description="Timeless taste in a modern package."
+              link="http://www.justshirleysoda.com/"
+            />
             <GrayContainer />
           </div>
           <GrayContainer
@@ -25,7 +30,12 @@ I’m a builder at heart with a passion for creating applications that are not o
       <div className="flex flex-col flex-1 gap-2">
         <div className="flex flex-row gap-2">
           <div className="flex flex-col w-3/4 gap-2 items-center">
-            <ImageCard image="/justshirleylogo2.png" />
+            <ImageCard
+              image="/blockstartIconSquare_website.png"
+              title="Blockstart"
+              description="Enter your marks. Find your school."
+              link="http://blockstart.net/"
+            />
             <GrayContainer />
           </div>
           <GrayContainer
@@ -70,10 +80,13 @@ function GrayContainer({
   description?: string;
 }) {
   return (
-    <div className="flex sm:flex-row flex-col w-full items-center min-h-[300px] sm:items-start gap-16 border-2 rounded-lg p-6 md:p-0 hover:scale-105 transition-all duration-300 bg-gray-900/50">
+    <div
+      className="flex sm:flex-row flex-col w-full items-center min-h-[300px] sm:items-start gap-16 border-2 rounded-lg p-6 md:p-0 
+    hover:bg-purple-900/10 dark:hover:bg-purple-900/10 dark:bg-gray-900/50 hover:scale-102 transition-all duration-300 "
+    >
       <div className="flex flex-col items-start gap-4 p-4">
-        <h2 className="text-white text-2xl font-bold">{title}</h2>
-        <p className="text-white text-lg">{description}</p>
+        <h2 className="text-2xl font-bold">{title}</h2>
+        <p className="text-lg">{description}</p>
       </div>
     </div>
   );

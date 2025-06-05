@@ -17,7 +17,7 @@ export default function Home() {
           offset={0}
           speed={2}
           className="mt-60"
-          style={{ zIndex: 3 }}
+          style={{ zIndex: 10 }}
         >
           <div className="flex flex-col items-center justify-center">
             <h2 className={`text-xl sm:text-2xl -mb-4 ${roboto.className}`}>
@@ -34,7 +34,7 @@ export default function Home() {
           offset={0}
           speed={1.75}
           className="flex flex-col items-center mt-90"
-          style={{ zIndex: 3 }}
+          style={{ zIndex: 10 }}
         >
           <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
@@ -53,14 +53,25 @@ export default function Home() {
             </a>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.5} factor={1} style={{ zIndex: 0 }}>
+        <ParallaxLayer offset={0} speed={0.2} factor={1} style={{ zIndex: 0 }}>
           <div className="w-full h-full bg-[url('/firewatch_background_extended_transparent_2.png')] dark:bg-[url('/firewatch_background_extended_night.png')] bg-cover bg-center bg-repeat-x z-[1]" />
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={1} factor={1} style={{ zIndex: 2 }}>
+        <ParallaxLayer offset={0} speed={0.6} factor={1} style={{ zIndex: 1 }}>
           <div className="w-full h-full bg-[url('/firewatch_background_trees.png')] dark:bg-[url('/firewatch_background_night_trees.png')] bg-cover bg-center bg-repeat-x z-[1]" />
         </ParallaxLayer>
-        <ParallaxLayer offset={0.99} speed={1} factor={2} style={{ zIndex: 1 }}>
-          <div className="w-full h-full flex flex-col bg-[#290452] dark:bg-[#08081d]">
+        <ParallaxLayer
+          offset={0.98}
+          speed={0.6}
+          factor={1}
+          style={{ zIndex: 2 }}
+        >
+          <div className="w-full h-[120px] bg-[#290452] dark:bg-[#08081d]" />
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.33} speed={1} factor={1} style={{ zIndex: 5 }}>
+          <div className="w-full h-full bg-[url('/firewatch_background_notrees_white.png')] dark:bg-[url('/firewatch_background_notrees_night.png')] bg-cover bg-center bg-repeat-x z-[1]" />
+        </ParallaxLayer>
+        <ParallaxLayer offset={0.99} speed={1} factor={2} style={{ zIndex: 3 }}>
+          <div className="w-full h-full flex flex-col bg-[#ffffff] dark:bg-[#08081d] mt-35">
             <ProjectSection />
           </div>
         </ParallaxLayer>
