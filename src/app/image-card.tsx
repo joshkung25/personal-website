@@ -13,13 +13,13 @@ export default function ImageCard({
   link: string;
 }) {
   return (
-    <div className="rounded-lg overflow-hidden border border-solid border-gray-200 cursor-pointer hover:scale-105 hover:opacity-50 transition-all duration-300">
+    <div className="w-full rounded-lg overflow-hidden border border-solid border-gray-200 cursor-pointer hover:scale-105 hover:opacity-50 transition-all duration-300">
       <Image
         src={image}
         alt="Image Card"
-        width={250}
-        height={250}
-        className="w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px]"
+        width={250} //ignore
+        height={250} //ignore
+        className="w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px]"
         onClick={() => window.open(link, "_blank")}
       />
       <div className="p-4">
