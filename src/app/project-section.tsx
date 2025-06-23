@@ -22,8 +22,7 @@ export function LargeProjectSection() {
       <div className="flex flex-col flex-1 gap-2">
         <GrayContainer
           title="About Me"
-          description="Hi, I'm Josh Kung — a Northeastern University CS and Business student.
-I'm a builder at heart with a passion for creating applications that are not only functional but thoughtfully designed. I thrive at the intersection of technology and entrepreneurship, where I can take ideas from concept to execution. My strengths lie in creative problem solving, front-end development, and product thinking — especially when it comes to designing experiences that people love to use."
+          description="I'm Josh Kung, a CS and Business student at Northeastern University. I build functional, well-designed applications and enjoy turning ideas into real products. My strengths are in front-end/full-stack development, creative problem solving, and designing user-friendly experiences."
         />
         {/* row block */}
         <div className="flex flex-col md:flex-row gap-2">
@@ -31,8 +30,8 @@ I'm a builder at heart with a passion for creating applications that are not onl
           <div className="flex flex-col w-1/2 md:w-3/4 gap-2 items-center">
             <ImageCard
               image="/justshirleylogo2.png"
-              title="Just Shirley"
-              description="Timeless taste in a modern package."
+              title="Just Shirley · Brand Website"
+              description="Front-end and brand website for a sparkling beverage."
               link="http://www.justshirleysoda.com/"
             />
             <GrayContainer />
@@ -50,15 +49,17 @@ I'm a builder at heart with a passion for creating applications that are not onl
           <div className="flex flex-col w-1/2 md:w-3/4 gap-2 items-center">
             <ImageCard
               image="/blockstartIconSquare_website.png"
-              title="Blockstart"
-              description="Enter your marks. Find your school."
+              title="Blockstart · Web App"
+              description="Full-stack web service to help track athletes."
               link="http://blockstart.net/"
             />
             <GrayContainer />
           </div>
-          <GrayContainer
-            title="Gray Container"
-            description="This is a gray container."
+          <ImageCard
+            image="/reprally_2.png"
+            title="Rep Rally · Data Analysis"
+            description="Inventory-driven analysis of real wholesale data."
+            link="/data-analysis"
           />
         </div>
         <GrayContainer
@@ -75,29 +76,28 @@ export function ProjectSectionSmall() {
     <div className="flex flex-col gap-4 px-4 mt-40">
       <GrayContainer
         title="About Me"
-        description="Hi, I'm Josh Kung — a Northeastern University CS and Business student.
-I'm a builder at heart with a passion for creating applications that are not only functional but thoughtfully designed. I thrive at the intersection of technology and entrepreneurship, where I can take ideas from concept to execution. My strengths lie in creative problem solving, front-end development, and product thinking — especially when it comes to designing experiences that people love to use."
+        description="I'm Josh Kung, a CS and Business student at Northeastern University. I build functional, well-designed applications and enjoy turning ideas into real products. My strengths are in full-stack development, creative problem solving, and designing user-friendly experiences."
       />
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-col gap-4">
         <div className="flex gap-4 w-full">
           <ImageCard
             image="/justshirleylogo2.png"
-            title="Just Shirley"
+            title="Just Shirley · Brand Website"
             description="Timeless taste in a modern package."
             link="http://www.justshirleysoda.com/"
           />
           <ImageCard
             image="/blockstartIconSquare_website.png"
-            title="Blockstart"
-            description="Enter your marks. Find your school."
+            title="Blockstart · Web App"
+            description="Full-stack web service to help track athletes."
             link="http://blockstart.net/"
           />
         </div>
         <ImageCard
-          image="/justshirleylogo2.png"
-          title="Just Shirley"
-          description="Timeless taste in a modern package."
-          link="http://www.justshirleysoda.com/"
+          image="/reprally_2.png"
+          title="Rep Rally · Data Analysis"
+          description="Inventory-driven analysis of real wholesale data."
+          link="/data-analysis"
         />
       </div>
     </div>

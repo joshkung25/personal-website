@@ -39,9 +39,10 @@ export default function Sidebar({ collapsed = true }: { collapsed: boolean }) {
         }`}
     >
       <MenuItem label="Home" path="/home" />
-      <MenuItem label="About" path="/about" />
+      <MenuItem label="Data Analysis" path="/data-analysis" />
       <MenuItem label="Projects" path="/projects" />
       <MenuItem label="Contact" path="/contact" />
+      <MenuItem label="About" path="/about" />
     </div>
   );
 }

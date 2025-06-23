@@ -32,7 +32,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navbar collapsed={collapsed} setCollapsed={setCollapsed} />
           <div className="flex md:flex-row flex-col justify-between items-stretch -mt-4">
-            <Sidebar collapsed={collapsed} />
+            {/* <Sidebar collapsed={collapsed} /> */}
             <main className="flex-1">{children}</main>
           </div>
         </ThemeProvider>
