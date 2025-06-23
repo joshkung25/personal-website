@@ -2,7 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React, { useState } from "react";
-import Sidebar from "@/app/sidebar";
+// import Sidebar from "@/app/sidebar";
 import Navbar from "@/app/navbar";
 import { ThemeProvider } from "next-themes";
 
