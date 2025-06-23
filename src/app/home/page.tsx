@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 // import { Roboto } from "next/font/google";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import ProjectSection from "../project-section";
 import Image from "next/image";
 
@@ -11,7 +11,7 @@ import Image from "next/image";
 // });
 
 export default function Home() {
-  const parallaxRef = useRef<any>(null);
+  const parallaxRef = useRef<IParallax>(null);
 
   const scrollToProjects = () => {
     if (parallaxRef.current) {
