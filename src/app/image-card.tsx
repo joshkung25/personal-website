@@ -10,7 +10,7 @@ export default function ImageCard({
   image: string;
   title: string;
   description: string;
-  link: string;
+  link?: string;
 }) {
   return (
     <div className="w-full rounded-lg overflow-hidden border border-solid border-gray-200 cursor-pointer hover:scale-105 hover:opacity-50 transition-all duration-300">

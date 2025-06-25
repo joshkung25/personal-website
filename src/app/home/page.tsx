@@ -31,7 +31,7 @@ export default function Home() {
           <div className="flex flex-row items-center justify-center gap-20">
             <div className="w-32 h-32 sm:w-64 sm:h-64 rounded-full overflow-hidden mb-4">
               <Image
-                src="/linkedin_1_small.png"
+                src="/linkedin_1_small_cropped.png"
                 width={160}
                 height={160}
                 alt="Josh Kung profile"
@@ -53,7 +53,7 @@ export default function Home() {
                 </button>
                 <a
                   className="rounded-full hover:text-black hover:dark:text-white border border-solid border-black/[.5] dark:border-white/[.5] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent hover:dark:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-                  href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+                  href="https://www.linkedin.com/in/josh-kung/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

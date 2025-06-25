@@ -36,9 +36,11 @@ export function LargeProjectSection() {
             />
             <GrayContainer />
           </div>
-          <GrayContainer
-            title="Gray Container"
-            description="This is a gray container."
+          <ImageCard
+            image="/car_search.webp"
+            title="Car Search · Front-end Functionality"
+            description="Modifying lists in frontend to search for cars by make, model, and zip code."
+            link="/modifying-list"
           />
         </div>
       </div>
@@ -56,8 +58,8 @@ export function LargeProjectSection() {
             <GrayContainer />
           </div>
           <ImageCard
-            image="/reprally_2.png"
-            title="Rep Rally · Data Analysis"
+            image="/retail_store.jpg"
+            title="Wholesale Data Analysis"
             description="Inventory-driven analysis of real wholesale data."
             link="/data-analysis"
           />
@@ -94,8 +96,8 @@ export function ProjectSectionSmall() {
           />
         </div>
         <ImageCard
-          image="/reprally_2.png"
-          title="Rep Rally · Data Analysis"
+          image="/retail_store.jpg"
+          title="Wholesale Data Analysis"
           description="Inventory-driven analysis of real wholesale data."
           link="/data-analysis"
         />
