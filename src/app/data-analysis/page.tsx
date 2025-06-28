@@ -295,8 +295,8 @@ function AnalysisCard({
   description: React.ReactNode;
 }) {
   return (
-    <div className="flex sm:flex-row flex-col w-full items-center sm:items-start gap-16 border-2 rounded-lg p-6 md:p-0">
-      <div className="flex flex-col items-start gap-4 p-18">
+    <div className="flex sm:flex-row flex-col w-full items-center sm:items-start gap-16 border-2 rounded-lg">
+      <div className="flex flex-col items-start gap-4 p-6 sm:p-18">
         <h2 className="text-2xl font-bold">{title}</h2>
         <div className="text-sm">{description}</div>
       </div>

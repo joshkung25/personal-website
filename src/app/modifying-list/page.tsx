@@ -22,7 +22,7 @@ interface Car {
   mileage: number;
   color: string;
   zipcode: string;
-  //   image: string;
+  image: string;
 }
 
 export default function ModifyingList() {
@@ -68,7 +68,7 @@ export default function ModifyingList() {
   const listItems = filteredCars.map((filteredCar, index) => (
     <div key={index} className="flex w-full">
       <ImageCard
-        image={`/${filteredCar.make.toLowerCase()}.png`}
+        image={filteredCar.image}
         title={
           filteredCar.year + " " + filteredCar.make + " " + filteredCar.model
         }
@@ -81,6 +81,7 @@ export default function ModifyingList() {
           " | " +
           filteredCar.zipcode
         }
+        height={200}
       />
     </div>
   ));
@@ -99,6 +100,7 @@ export default function ModifyingList() {
           placeholder="Enter Zip Code"
           onChange={(e) => {
             setZipCodeInput(e.target.value);
+            console.log(e.target.value);
           }}
         />
         <Select
@@ -141,9 +143,13 @@ export default function ModifyingList() {
         </Button>
       </div>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {listItems}
-      </ul>
+      {listItems.length > 0 ? (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {listItems}
+        </ul>
+      ) : (
+        <p className="text-center">No cars found</p>
+      )}
     </div>
   );
 }

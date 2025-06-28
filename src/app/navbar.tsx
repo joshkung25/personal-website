@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { CiMenuFries } from "react-icons/ci";
+import { IoMdHome } from "react-icons/io";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 import { cn } from "@/lib/utils";
@@ -27,9 +27,10 @@ export default function Navbar({
   return (
     <div className="flex justify-between items-center p-4">
       <NavigationMenu className="max-w-full w-full flex justify-between pb-3">
-        <CiMenuFries
-          className="size-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full p-2"
-          onClick={() => setCollapsed(!collapsed)}
+        <IoMdHome
+          className="size-10 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full p-1"
+          onClick={() => (window.location.href = "/home")}
+          // onClick={() => setCollapsed(!collapsed)}
         />
         <NavigationMenuList className="pl-4 hidden sm:flex">
           <NavigationMenuItem>
