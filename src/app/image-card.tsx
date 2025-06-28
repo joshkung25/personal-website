@@ -22,7 +22,7 @@ export default function ImageCard({
         alt="Image Card"
         width={250} //ignore
         height={250} //ignore
-        className="w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px]"
+        className="w-full max-h-[350px] object-contain"
       />
       <div className="p-4">
         <h3 className="text-lg font-bold">{title}</h3>

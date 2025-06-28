@@ -101,6 +101,12 @@ export function ProjectSectionSmall() {
           description="Inventory-driven analysis of real wholesale data."
           link="/data-analysis"
         />
+        <ImageCard
+          image="/car_search.webp"
+          title="Car Search · Front-end Functionality"
+          description="Modifying lists in frontend to search for cars by make, model, and zip code."
+          link="/modifying-list"
+        />
       </div>
     </div>
   );
@@ -115,7 +121,7 @@ export function GrayContainer({
 }) {
   return (
     <div
-      className="flex sm:flex-row flex-col w-full items-center min-h-[300px] sm:items-start gap-16 border-2 rounded-lg p-6 md:p-0 
+      className="flex sm:flex-row flex-col w-full items-center min-h-[250px] sm:items-start gap-16 border-2 rounded-lg p-6 md:p-0 
     hover:bg-purple-900/10 dark:hover:bg-purple-900/10 dark:bg-gray-900/50 hover:scale-102 transition-all duration-300"
     >
       <div className="flex flex-col items-start gap-4 p-4">

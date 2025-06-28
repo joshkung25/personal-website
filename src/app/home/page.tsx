@@ -28,7 +28,7 @@ export default function Home() {
           className="mt-40"
           style={{ zIndex: 10 }}
         >
-          <div className="flex flex-row items-center justify-center gap-20">
+          <div className="flex flex-col sm:flex-row items-center justify-center md:gap-20">
             <div className="w-32 h-32 sm:w-64 sm:h-64 rounded-full overflow-hidden mb-4">
               <Image
                 src="/linkedin_1_small_cropped.png"
@@ -38,26 +38,26 @@ export default function Home() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-2 sm:gap-8">
               <h1
                 className={`text-4xl sm:text-6xl font-bold bg-gradient-to-br from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent p-4`}
               >
                 Hi, I&apos;m Josh
               </h1>
-              <div className="flex gap-4 items-center flex-col sm:flex-row">
-                <button
-                  className="cursor-pointer rounded-full transition-colors flex items-center justify-center bg-foreground text-background gap-2 relative hover:bg-gradient-to-br hover:from-blue-500 hover:via-purple-400 hover:to-pink-400 hover:text-white font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
+              <div className="flex gap-4 items-center flex-row">
+                <a
+                  className="cursor-pointer rounded-full transition-colors flex items-center justify-center bg-foreground text-background gap-2 relative hover:bg-gradient-to-br hover:from-blue-500 hover:via-purple-400 hover:to-pink-400 hover:text-white font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
                   onClick={scrollToProjects}
                 >
-                  Explore now
-                </button>
+                  Explore
+                </a>
                 <a
                   className="rounded-full hover:text-black hover:dark:text-white border border-solid border-black/[.5] dark:border-white/[.5] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent hover:dark:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
                   href="https://www.linkedin.com/in/josh-kung/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Contact me
+                  Contact
                 </a>
               </div>
             </div>

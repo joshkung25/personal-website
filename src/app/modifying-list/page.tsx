@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { GrayContainer } from "../project-section";
 import carsList from "../../../public/cars.json";
 import { Button } from "@/components/ui/button";
 // import { GrayContainer } from "../project-section";
@@ -67,7 +68,7 @@ export default function ModifyingList() {
   const listItems = filteredCars.map((filteredCar, index) => (
     <div key={index} className="flex w-full">
       <ImageCard
-        image={"/placeholder.png"}
+        image={`/${filteredCar.make.toLowerCase()}.png`}
         title={
           filteredCar.year + " " + filteredCar.make + " " + filteredCar.model
         }
@@ -85,8 +86,13 @@ export default function ModifyingList() {
   ));
 
   return (
-    <div className="flex flex-col gap-4 px-4 sm:px-40 mt-20">
-      <div className="flex flex-row gap-4 w-full border border-gray-300 dark:border-gray-700 rounded-lg p-2">
+    <div className="flex flex-col gap-8 px-4 sm:px-40 mt-10">
+      <GrayContainer
+        title="Car Search · Front-end Functionality"
+        description="Modifying lists in frontend to search for cars by make, model, and zip code (eg. 02115)."
+      />
+
+      <div className="flex flex-col sm:flex-row gap-4 w-full">
         <input
           type="text"
           className="border border-gray-300 dark:border-gray-700 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-purple-500 w-1/2 h-9"
@@ -135,7 +141,9 @@ export default function ModifyingList() {
         </Button>
       </div>
 
-      <ul className="grid grid-cols-2 gap-4">{listItems}</ul>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {listItems}
+      </ul>
     </div>
   );
 }
