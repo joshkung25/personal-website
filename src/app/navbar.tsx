@@ -17,13 +17,14 @@ import {
 } from "@/components/ui/navigation-menu";
 import ThemeToggle from "./theme-toggle";
 
-export default function Navbar({
-  collapsed,
-  setCollapsed,
-}: {
-  collapsed: boolean;
-  setCollapsed: (collapsed: boolean) => void;
-}) {
+export default function Navbar() {
+//   {
+//   collapsed,
+//   setCollapsed,
+// }: {
+//   collapsed: boolean;
+//   setCollapsed: (collapsed: boolean) => void;
+// }
   return (
     <div className="flex justify-between items-center p-4">
       <NavigationMenu className="max-w-full w-full flex justify-between pb-3">

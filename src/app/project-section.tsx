@@ -29,7 +29,7 @@ export function LargeProjectSection() {
           {/* column block */}
           <div className="flex flex-col w-1/2 md:w-3/4 gap-2 items-center">
             <ImageCard
-              image="/justshirleylogo2.png"
+              image="/justshirley_logo_2025.png"
               title="Just Shirley · Brand Website"
               description="Front-end and brand website for a sparkling beverage."
               link="http://www.justshirleysoda.com/"
@@ -83,7 +83,7 @@ export function ProjectSectionSmall() {
       <div className="flex flex-col gap-4">
         <div className="flex gap-4 w-full">
           <ImageCard
-            image="/justshirleylogo2.png"
+            image="/justshirley_logo_2025.png"
             title="Just Shirley · Brand Website"
             description="Timeless taste in a modern package."
             link="http://www.justshirleysoda.com/"

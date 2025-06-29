@@ -1,7 +1,7 @@
 "use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import React, { useState } from "react";
+import React from "react";
 // import Sidebar from "@/app/sidebar";
 import Navbar from "@/app/navbar";
 import { ThemeProvider } from "next-themes";
@@ -21,7 +21,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [collapsed, setCollapsed] = useState(true);
+  // const [collapsed, setCollapsed] = useState(true);
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -30,7 +30,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Navbar collapsed={collapsed} setCollapsed={setCollapsed} />
+          {/* <Navbar collapsed={collapsed} setCollapsed={setCollapsed} /> */}
+          <Navbar />
           <div className="flex md:flex-row flex-col justify-between items-stretch -mt-4">
             {/* <Sidebar collapsed={collapsed} /> */}
             <main className="flex-1">{children}</main>
