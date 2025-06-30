@@ -24,7 +24,8 @@ export default function ImageCard({
         alt="Image Card"
         width={250} //ignore
         height={250} //ignore
-        className={`w-full h-[${height}px] object-cover bg-gray-200`}
+        style={{ height: `${height}px` }}
+        className="w-full object-cover bg-gray-200"
       />
       <div className="p-4">
         <h3 className="text-lg font-bold">{title}</h3>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { GrayContainer } from "../project-section";
 import carsList from "../../../public/cars.json";
 import { Button } from "@/components/ui/button";
@@ -27,45 +27,43 @@ interface Car {
 
 export default function ModifyingList() {
   const [cars, setCars] = useState<Car[]>([]);
-
-  const [zipCode, setZipCode] = useState<string>("");
-  const [brand, setBrand] = useState<string>("");
-  const [model, setModel] = useState<string>("");
+  const [displayCars, setDisplayCars] = useState<Car[]>([]);
 
   const [zipCodeInput, setZipCodeInput] = useState<string>("");
   const [brandInput, setBrandInput] = useState<string>("");
   const [modelInput, setModelInput] = useState<string>("");
-  //   const [year, setYear] = useState<string>("");
-  //   const [price, setPrice] = useState<string>("");
-  //   const [mileage, setMileage] = useState<string>("");
 
+  //runs on mount once
   useEffect(() => {
     setCars(carsList);
+    setDisplayCars(carsList);
   }, []);
 
   function handleSearch() {
     console.log(zipCodeInput + " " + brandInput + " " + modelInput);
-    setZipCode(zipCodeInput);
-    setBrand(brandInput);
-    setModel(modelInput);
+    setDisplayCars(filteredCars);
   }
-
-  const uniqueBrands = [...new Set(cars.map((car) => car.make))];
 
   let filteredCars = cars;
-  if (zipCode) {
-    filteredCars = filteredCars.filter((car) => car.zipcode == zipCode);
+  if (zipCodeInput) {
+    filteredCars = filteredCars.filter((car) => car.zipcode == zipCodeInput);
   }
-  if (brand) {
-    filteredCars = filteredCars.filter((car) => car.make == brand);
+  if (brandInput) {
+    filteredCars = filteredCars.filter((car) => car.make == brandInput);
   }
-  if (model) {
-    filteredCars = filteredCars.filter((car) => car.model == model);
+  if (modelInput) {
+    filteredCars = filteredCars.filter((car) => car.model == modelInput);
   }
 
-  const uniqueModels = [...new Set(filteredCars.map((car) => car.model))];
+  //useMemo for calculations that don't change
+  const uniqueBrands = useMemo(() => {
+    return [...new Set(cars.map((car) => car.make))];
+  }, [cars]);
+  const uniqueModels = useMemo(() => {
+    return [...new Set(filteredCars.map((car) => car.model))];
+  }, [filteredCars]);
 
-  const listItems = filteredCars.map((filteredCar, index) => (
+  const listItems = displayCars.map((filteredCar, index) => (
     <div key={index} className="flex w-full">
       <ImageCard
         image={filteredCar.image}
