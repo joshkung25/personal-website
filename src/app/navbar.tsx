@@ -15,16 +15,16 @@ import {
   // NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import ThemeToggle from "./theme-toggle";
+// import ThemeToggle from "./theme-toggle";
 
 export default function Navbar() {
-//   {
-//   collapsed,
-//   setCollapsed,
-// }: {
-//   collapsed: boolean;
-//   setCollapsed: (collapsed: boolean) => void;
-// }
+  //   {
+  //   collapsed,
+  //   setCollapsed,
+  // }: {
+  //   collapsed: boolean;
+  //   setCollapsed: (collapsed: boolean) => void;
+  // }
   return (
     <div className="flex justify-between items-center p-4">
       <NavigationMenu className="max-w-full w-full flex justify-between pb-3">
@@ -90,7 +90,7 @@ export default function Navbar() {
           </NavigationMenuItem> */}
         </NavigationMenuList>
         <NavigationMenuList>
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <Link
             href="mailto:joshuahkung@gmail.com"
             className={`ml-4 ${navigationMenuTriggerStyle()}`}

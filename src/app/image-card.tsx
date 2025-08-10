@@ -17,7 +17,7 @@ export default function ImageCard({
   return (
     <div
       onClick={() => (window.location.href = link || "/")}
-      className="w-full rounded-lg overflow-hidden border border-solid border-gray-200 cursor-pointer hover:scale-105 hover:opacity-50 transition-all duration-300"
+      className="w-full rounded-lg overflow-hidden border border-solid border-gray-200 cursor-pointer hover:opacity-50 transition-all duration-300"
     >
       <img
         src={image}
