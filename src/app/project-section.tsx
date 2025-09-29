@@ -40,7 +40,7 @@ export function LargeProjectSection() {
               description="Modifying lists in frontend to search for cars by make, model, and zip code."
               link="/modifying-list"
               height={120}
-            />
+             />
           </div>
           <GrayContainer />
         </div>
