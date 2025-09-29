@@ -4,7 +4,7 @@ import "./globals.css";
 import React from "react";
 // import Sidebar from "@/app/sidebar";
 import Navbar from "@/app/navbar";
-import { ThemeProvider } from "next-themes";
+// import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
