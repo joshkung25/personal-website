@@ -29,14 +29,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {/* <Navbar collapsed={collapsed} setCollapsed={setCollapsed} /> */}
-          <Navbar />
-          <div className="flex md:flex-row flex-col justify-between items-stretch -mt-4">
-            {/* <Sidebar collapsed={collapsed} /> */}
-            <main className="flex-1">{children}</main>
-          </div>
-        </ThemeProvider>
+        {/* <ThemeProvider attribute="class" defaultTheme="dark" enableSystem> */}
+        {/* <Navbar collapsed={collapsed} setCollapsed={setCollapsed} /> */}
+        <Navbar />
+        <div className="flex md:flex-row flex-col justify-between items-stretch -mt-4">
+          {/* <Sidebar collapsed={collapsed} /> */}
+          <main className="flex-1">{children}</main>
+        </div>
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
