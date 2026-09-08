@@ -1,0 +1,133 @@
+/* Modernist-derived tokens + the few things that can't be inline styles.
+   Import once from the portfolio page. */
+
+.pf, .pf-bg {
+  --pf-ink: #171514;
+  --pf-ink-2: #0f0e0d;
+  --pf-card: #1f1d1c;
+  --pf-card-hover: #232120;
+  --pf-paper: #f3f2f2;
+  --pf-accent: #ec3013;
+  --pf-accent-300: #ffc4b8;
+  --pf-accent-400: #ff9783;
+  --pf-accent-600: #dd2b0f;
+  --pf-accent-700: #ae1800;
+}
+
+html { scroll-behavior: smooth; }
+/* the ink runs edge to edge, including the overscroll gutter */
+html, body { background: #171514; }
+
+.pf {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--pf-ink);
+  color: var(--pf-paper);
+  font-family: var(--font-archivo), Archivo, system-ui, sans-serif;
+}
+.pf > main { flex: 1; }
+.pf h1, .pf h2, .pf h3, .pf h4 { font-family: var(--font-archivo), Archivo, system-ui, sans-serif; font-weight: 800; }
+.pf a { color: var(--pf-accent-400); }
+.pf ::selection { background: color-mix(in srgb, var(--pf-accent) 30%, transparent); }
+.pf :focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
+
+/* photographs print in pure black and white */
+.pf .grayscale { filter: grayscale(1) contrast(1.08); transition: filter .35s cubic-bezier(.2,.7,.2,1); }
+/* ...but a project card returns its colour on hover */
+.pf-card:hover .grayscale, .pf-card:focus-visible .grayscale { filter: grayscale(0) contrast(1); }
+
+/* background grounds — swap BACKGROUND in page.tsx */
+.pf-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--pf-ink); }
+.pf-bg--grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--pf-paper) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--pf-paper) 6%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
+}
+.pf-bg--dots {
+  background-image: radial-gradient(color-mix(in srgb, var(--pf-paper) 14%, transparent) 1px, transparent 1.2px);
+  background-size: 20px 20px;
+}
+.pf-bg--rules {
+  background-image: repeating-linear-gradient(180deg, color-mix(in srgb, var(--pf-paper) 7%, transparent) 0 1px, transparent 1px 34px);
+}
+.pf-bg--glow {
+  background-image: radial-gradient(90% 60% at 78% 0%, color-mix(in srgb, var(--pf-accent) 20%, transparent), transparent 70%);
+}
+.pf-bg--flat { background-image: none; }
+
+/* header / nav links */
+.pf-toplink { color: color-mix(in srgb, var(--pf-paper) 70%, transparent); text-decoration: none; }
+.pf-toplink:hover { color: var(--pf-accent-400); }
+
+/* buttons — flush-left labels, zero radius */
+.pf-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: ui-monospace, Menlo, monospace; font-size: 14px; line-height: 1.2;
+  padding: 9px 14px; border: 1px solid transparent; border-radius: 0;
+  text-decoration: none; cursor: pointer;
+}
+.pf-btn--primary { background: var(--pf-accent); color: var(--pf-paper); }
+.pf-btn--primary:hover { background: var(--pf-accent-600); color: var(--pf-paper); }
+.pf-btn--ghost { border-color: color-mix(in srgb, var(--pf-paper) 30%, transparent); color: var(--pf-paper); }
+.pf-btn--ghost:hover { border-color: var(--pf-accent); color: var(--pf-accent-400); }
+
+/* project feed — a 12-column field the cards sit on unevenly.
+   Below the breakpoint it collapses to one column and the fillers drop out. */
+.pf-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.pf-grid > .pf-cell { min-width: 0; }
+.pf-filler { display: none; }
+@media (min-width: 860px) {
+  .pf-grid { grid-template-columns: repeat(12, 1fr); }
+  .pf-grid > .pf-cell { grid-column: span var(--span, 12); }
+  .pf-filler { display: flex; }
+}
+
+/* negative-space panels that keep the feed from reading as a neat table */
+.pf-filler {
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  padding: 14px;
+  border: 1px dashed color-mix(in srgb, var(--pf-paper) 18%, transparent);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--pf-paper) 3%, transparent) 0 1px,
+      transparent 1px 9px
+    );
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--pf-paper) 38%, transparent);
+}
+
+/* project cards */
+.pf-card {
+  display: flex; flex-direction: column; min-width: 0; text-decoration: none;
+  color: var(--pf-paper); background: var(--pf-card);
+  border: 1px solid color-mix(in srgb, var(--pf-paper) 20%, transparent);
+  transition: border-color .25s, transform .25s, background .25s;
+}
+.pf-card:hover { border-color: var(--pf-accent); transform: translateY(-3px); background: var(--pf-card-hover); color: var(--pf-paper); }
+.pf-card img { transition: transform .5s cubic-bezier(.2,.7,.2,1), opacity .3s; opacity: .82; }
+.pf-card:hover img { transform: scale(1.04); opacity: 1; }
+
+/* timeline cards */
+.pf-role { border: 1px solid color-mix(in srgb, var(--pf-paper) 20%, transparent); background: var(--pf-card); transition: border-color .25s; }
+.pf-role:hover { border-color: var(--pf-accent); }
+
+/* motion */
+@keyframes pf-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes pf-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+[data-rv] { opacity: 1; }
+[data-rv="armed"] { opacity: 0; }
+[data-rv="in"] { animation: pf-rise .6s cubic-bezier(.2,.7,.2,1) both; }
+.pf-caret { display: inline-block; width: 8px; height: 15px; background: var(--pf-accent); vertical-align: -2px; animation: pf-blink 1s step-end infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-rv] { opacity: 1; }
+  [data-rv="in"] { animation: none; }
+  .pf-caret { animation: none; }
+}
