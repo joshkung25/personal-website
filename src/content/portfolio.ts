@@ -94,7 +94,7 @@ export const TERM_LINES = [
   "northeastern cs + business, dec 2026",
   "",
   "$ ls ~/now",
-  "fetch-ai/   blockstart/",
+  "fetch-ai/   critter/",
   "",
   "$ _",
 ];
