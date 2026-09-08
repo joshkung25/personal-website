@@ -70,7 +70,6 @@ export default function Hero() {
           }}
         >
           <div
-            className="grayscale"
             style={{
               width: 108,
               flex: "0 0 108px",

@@ -33,9 +33,11 @@ html, body { background: #171514; }
 .pf :focus-visible { outline: 2px solid var(--pf-accent); outline-offset: 2px; }
 
 /* photographs print in pure black and white */
-.pf .grayscale { filter: grayscale(1) contrast(1.08); transition: filter .35s cubic-bezier(.2,.7,.2,1); }
+/* product thumbnails sit lightly desaturated so brand colour still reads,
+   and come back fully on hover */
+.pf .grayscale { filter: grayscale(.45) contrast(1.04); transition: filter .35s cubic-bezier(.2,.7,.2,1); }
 /* ...but a project card returns its colour on hover */
-.pf-card:hover .grayscale, .pf-card:focus-visible .grayscale { filter: grayscale(0) contrast(1); }
+.pf-card:hover .grayscale, .pf-card:focus-visible .grayscale { filter: none; }
 
 /* background grounds — swap BACKGROUND in page.tsx */
 .pf-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--pf-ink); }
@@ -111,6 +113,8 @@ html, body { background: #171514; }
   transition: border-color .25s, transform .25s, background .25s;
 }
 .pf-card:hover { border-color: var(--pf-accent); transform: translateY(-3px); background: var(--pf-card-hover); color: var(--pf-paper); }
+.pf-card h3 { color: var(--pf-accent-400); transition: color .25s; }
+.pf-card:hover h3, .pf-card:focus-visible h3 { color: var(--pf-paper); }
 .pf-card img { transition: transform .5s cubic-bezier(.2,.7,.2,1), opacity .3s; opacity: .82; }
 .pf-card:hover img { transform: scale(1.04); opacity: 1; }
 
