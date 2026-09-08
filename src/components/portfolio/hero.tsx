@@ -21,32 +21,13 @@ export default function Hero() {
       }}
     >
       <Reveal style={{ minWidth: 0 }}>
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 8,
-            fontFamily: mono,
-            fontSize: 11,
-            letterSpacing: ".08em",
-            textTransform: "uppercase",
-            color: "var(--pf-accent-400)",
-            border: "1px solid var(--pf-accent)",
-            padding: "4px 10px",
-            marginBottom: 26,
-          }}
-        >
-          <span
-            style={{ width: 7, height: 7, background: "var(--pf-accent)", display: "block" }}
-          />
-          status: open — 2027 new grad
-        </div>
         <h1
           style={{
             fontSize: "clamp(40px, 17cqi, 92px)",
             lineHeight: 0.92,
             letterSpacing: "-.04em",
             margin: "0 0 20px",
+            paddingTop: 4,
             color: "#f3f2f2",
             overflowWrap: "anywhere",
           }}
@@ -79,16 +60,25 @@ export default function Hero() {
       </Reveal>
 
       <Reveal style={{ minWidth: 0, display: "flex", flexDirection: "column", gap: 14 }}>
-        <div style={{ display: "flex", gap: 14, alignItems: "stretch", flexWrap: "wrap" }}>
+        {/* one bordered unit, same system as the terminal below it */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "stretch",
+            border: rule2,
+            background: "var(--pf-ink-2)",
+          }}
+        >
           <div
             className="grayscale"
             style={{
-              width: 96,
-              flex: "0 0 96px",
-              border: rule2,
+              width: 108,
+              flex: "0 0 108px",
               position: "relative",
-              aspectRatio: "3 / 4",
+              alignSelf: "stretch",
+              minHeight: 128,
               overflow: "hidden",
+              borderRight: rule1,
               background: "#f3f2f2",
             }}
           >
@@ -96,29 +86,44 @@ export default function Hero() {
               src={HEADSHOT}
               alt="Josh Kung"
               fill
-              sizes="96px"
+              sizes="108px"
               priority
               style={{ objectFit: "cover", objectPosition: "center", opacity: 0.92 }}
             />
           </div>
           <div
             style={{
-              flex: "1 1 130px",
+              flex: "1 1 150px",
               minWidth: 0,
-              overflowWrap: "anywhere",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "flex-end",
-              gap: 8,
+              justifyContent: "center",
+              gap: 12,
+              padding: "14px 16px",
               fontFamily: mono,
-              fontSize: 11,
-              color: paper(55),
-              borderBottom: rule1,
-              paddingBottom: 8,
             }}
           >
-            <div style={{ color: "#f3f2f2", fontSize: 12.5 }}>Boston, MA</div>
-            <div>prev: Apple · TinyFish</div>
+            {[
+              ["based", "Boston, MA"],
+              ["prev", "Apple · TinyFish"],
+            ].map(([label, value]) => (
+              <div key={label} style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+                <span
+                  style={{
+                    fontSize: 10,
+                    letterSpacing: ".14em",
+                    textTransform: "uppercase",
+                    color: paper(40),
+                    flex: "0 0 40px",
+                  }}
+                >
+                  {label}
+                </span>
+                <span style={{ fontSize: 12.5, color: "#f3f2f2", overflowWrap: "anywhere" }}>
+                  {value}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
