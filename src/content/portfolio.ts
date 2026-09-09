@@ -70,7 +70,7 @@ export const ROLES: Role[] = [
     tags: ["AI platform", "LLM evals", "MCP", "internal tooling"],
   },
   {
-    when: "2025",
+    when: "2024",
     sha: "7b02de1",
     org: "TinyFish",
     role: "swe intern",
