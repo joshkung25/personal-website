@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Geist } from "next/font/google";
+import localFont from "next/font/local";
+import { GeistSans } from "geist/font/sans";
 import React from "react";
 import "./globals.css";
 import SiteHeader from "@/components/portfolio/site-header";
 import SiteFooter from "@/components/portfolio/site-footer";
 
-const bricolage = Bricolage_Grotesque({
+// fonts are self-hosted so the build never fetches from Google Fonts
+const bricolage = localFont({
+  src: "./fonts/BricolageGrotesque-Variable.woff2",
   variable: "--font-bricolage",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
+  weight: "200 800",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bricolage.variable} ${geist.variable} antialiased`}>
+      <body className={`${bricolage.variable} ${GeistSans.variable} antialiased`}>
         <SiteHeader />
         <main className="mx-auto flex max-w-5xl flex-col gap-24 px-4 pb-24 sm:gap-28 sm:px-6">
           {children}
