@@ -1,29 +1,25 @@
 import type { Metadata } from "next";
-import { Archivo, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist } from "next/font/google";
 import React from "react";
 import "./globals.css";
-import "./portfolio.css";
 import SiteHeader from "@/components/portfolio/site-header";
 import SiteFooter from "@/components/portfolio/site-footer";
-import { BACKGROUND } from "@/content/portfolio";
 
-// Archivo is what gives the page its Modernist voice — without it everything
-// falls back to system sans.
-const archivo = Archivo({
-  variable: "--font-archivo",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["400", "600", "800"],
+  weight: ["500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Josh Kung — fullstack dev",
+  title: "Josh Kung — fullstack developer",
   description:
-    "Fullstack dev drawn to the problems under the interface — retrieval, data, the plumbing that has to hold.",
+    "Fullstack developer working on AI platforms, retrieval, and data. CS and business at Northeastern.",
 };
 
 export default function RootLayout({
@@ -32,17 +28,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body
-        className={`${archivo.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <div className="pf">
-          <div className={`pf-bg pf-bg--${BACKGROUND}`} />
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
-        </div>
+    <html lang="en">
+      <body className={`${bricolage.variable} ${geist.variable} antialiased`}>
+        <SiteHeader />
+        <main className="mx-auto flex max-w-5xl flex-col gap-24 px-4 pb-24 sm:gap-28 sm:px-6">
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );

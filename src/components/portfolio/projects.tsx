@@ -1,141 +1,82 @@
 import React from "react";
 import Image from "next/image";
-import Reveal from "@/components/portfolio/reveal";
+import { ArrowUpRight } from "lucide-react";
+import Section from "@/components/portfolio/section";
+import Tag from "@/components/portfolio/tag";
 import { PROJECTS } from "@/content/portfolio";
-import { mono, paper, rule2, sectionLabel, SHELL, tag } from "@/components/portfolio/styles";
+import type { Project } from "@/types/portfolio";
 
-/** grid child helper — `--span` is read by .pf-grid in portfolio.css */
-const cell = (span: number) => ({ ["--span"]: span }) as React.CSSProperties;
+function ProjectCard({ p }: { p: Project }) {
+  const body = (
+    <>
+      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-muted">
+        <Image
+          src={p.img}
+          alt=""
+          fill
+          sizes="(min-width: 640px) 480px, 100vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+          style={{ objectPosition: p.focus ?? "top center" }}
+        />
+      </div>
+      <div className="flex flex-1 flex-col px-2 pt-5 pb-2">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="font-display text-xl font-semibold tracking-tight">{p.title}</h3>
+            <p className="mt-0.5 text-sm text-muted-foreground">{p.kind}</p>
+          </div>
+          {p.href ? (
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full border text-muted-foreground transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+              <ArrowUpRight className="size-4" />
+            </span>
+          ) : (
+            <span className="shrink-0 rounded-full bg-muted px-3 py-1.5 text-xs text-muted-foreground">
+              In development
+            </span>
+          )}
+        </div>
+        <p className="mt-3 text-[15px] leading-relaxed text-foreground/80">{p.body}</p>
+        <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+          {p.stack.map((s) => (
+            <Tag key={s}>{s}</Tag>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 
-/** A void in the field. Carries a label so the gap reads as intent, not omission. */
-function Filler({ span, label, note }: { span: number; label: string; note: string }) {
-  return (
-    <div className="pf-cell pf-filler" style={cell(span)} aria-hidden>
-      <span style={{ color: "var(--pf-accent-400)" }}>{label}</span>
-      <span>
-        {note} <span className="pf-caret" style={{ height: 11, width: 6 }} />
-      </span>
-    </div>
+  const shell =
+    "group flex h-full flex-col rounded-[28px] border bg-card p-3 outline-none transition-shadow focus-visible:ring-[3px] focus-visible:ring-ring/50";
+
+  return p.href ? (
+    <a
+      href={p.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${p.title}, opens site`}
+      className={`${shell} hover:shadow-[0_16px_40px_-20px_rgba(20,22,27,0.25)]`}
+    >
+      {body}
+    </a>
+  ) : (
+    <div className={shell}>{body}</div>
   );
 }
 
 export default function Projects() {
   return (
-    <section
+    <Section
       id="projects"
-      style={{ maxWidth: SHELL, margin: "24px auto 0", padding: "52px 24px 20px", borderTop: rule2 }}
+      title="Projects"
+      description="Things I've built and shipped, from AI tools to brand sites."
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "baseline",
-          gap: 14,
-          marginBottom: 26,
-          flexWrap: "wrap",
-        }}
-      >
-        <h2 style={sectionLabel}>projects/</h2>
-        <span style={{ height: 2, background: paper(22), flex: 1, minWidth: 30 }} />
-        <span style={{ fontFamily: mono, fontSize: 12, color: paper(50) }}>
-          {PROJECTS.length} repos
-        </span>
-      </div>
-
-      <div className="pf-grid">
-        {PROJECTS.map((p, i) => {
-          const external = p.href?.startsWith("http") ?? false;
-          // no link yet — the card still renders, it just isn't clickable
-          const Card = p.href ? "a" : "div";
-          return (
-            <React.Fragment key={p.num}>
-              {/* the void indents the second row out from under the lead card */}
-              {i === 2 && <Filler span={4} label="next/" note="in development" />}
-              <Reveal className="pf-cell" style={cell(p.span)}>
-                <Card
-                  className="pf-card"
-                  href={p.href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  style={{ height: "100%" }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 8,
-                      padding: "9px 12px",
-                      borderBottom: `1px solid ${paper(16)}`,
-                      fontFamily: mono,
-                      fontSize: 11,
-                      color: paper(55),
-                    }}
-                  >
-                    <span style={{ color: "var(--pf-accent-400)" }}>{p.num}</span>
-                    <span>{p.slug}</span>
-                    <span style={{ marginLeft: "auto", color: "var(--pf-accent-400)" }}>
-                      {p.href ? "↗" : "wip"}
-                    </span>
-                  </div>
-                  <div
-                    className="grayscale"
-                    style={{
-                      position: "relative",
-                      width: "100%",
-                      aspectRatio: p.ratio,
-                      overflow: "hidden",
-                      borderBottom: `1px solid ${paper(16)}`,
-                    }}
-                  >
-                    <Image
-                      src={p.img}
-                      alt={p.title}
-                      fill
-                      sizes="(max-width: 860px) 100vw, 640px"
-                      style={{ objectFit: "cover", objectPosition: p.focus ?? "top center" }}
-                    />
-                  </div>
-                  <div
-                    style={{
-                      padding: "16px 14px 18px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 10,
-                      flex: 1,
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: mono,
-                        fontSize: 10,
-                        letterSpacing: ".12em",
-                        textTransform: "uppercase",
-                        color: "var(--pf-accent-400)",
-                      }}
-                    >
-                      {p.kind}
-                    </div>
-                    <h3 style={{ margin: 0, fontSize: 24, lineHeight: 1.08, letterSpacing: "-.02em" }}>
-                      {p.title}
-                    </h3>
-                    <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.6, color: paper(68), flex: 1 }}>
-                      {p.body}
-                    </p>
-                    {p.stack.length > 0 && (
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: 2 }}>
-                        {p.stack.map((s) => (
-                          <span key={s} style={tag}>
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </Card>
-              </Reveal>
-            </React.Fragment>
-          );
-        })}
-      </div>
-    </section>
+      <ul className="grid gap-4 sm:grid-cols-2">
+        {PROJECTS.map((p) => (
+          <li key={p.title}>
+            <ProjectCard p={p} />
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }

@@ -1,133 +1,59 @@
 import React from "react";
 import Image from "next/image";
-import Reveal from "@/components/portfolio/reveal";
-import Terminal from "@/components/portfolio/terminal";
-import { HEADSHOT } from "@/content/portfolio";
-import { mono, paper, rule1, rule2, SHELL } from "@/components/portfolio/styles";
+import Link from "next/link";
+import { Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { GitHubIcon, LinkedInIcon } from "@/components/portfolio/icons";
+import { GITHUB, HEADSHOT, INTRO, LINKEDIN, LOCATION } from "@/content/portfolio";
 
 export default function Hero() {
   return (
-    <section
-      style={{
-        maxWidth: SHELL,
-        margin: "0 auto",
-        padding: "64px 24px 40px",
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
-        gap: 40,
-        alignItems: "end",
-        // drives the 17cqi headline clamp — keep both or the headline stops scaling
-        containerType: "inline-size",
-      }}
-    >
-      <Reveal style={{ minWidth: 0 }}>
-        <h1
-          style={{
-            fontSize: "clamp(40px, 17cqi, 92px)",
-            lineHeight: 0.92,
-            letterSpacing: "-.04em",
-            margin: "0 0 20px",
-            paddingTop: 4,
-            color: "#f3f2f2",
-            overflowWrap: "anywhere",
-          }}
-        >
-          JOSH
-          <br />
-          KUNG<span style={{ color: "var(--pf-accent)" }}>.</span>
-        </h1>
-        <p
-          style={{
-            fontFamily: mono,
-            fontSize: 14.5,
-            lineHeight: 1.7,
-            maxWidth: "min(46ch, 100%)",
-            margin: "0 0 26px",
-            color: paper(74),
-          }}
-        >
-          Fullstack dev drawn to the problems under the interface — retrieval, data, the plumbing
-          that has to hold.
+    <section className="hero-in flex flex-col items-center pt-16 text-center sm:pt-24">
+      <div className="relative size-32 overflow-hidden rounded-full bg-muted ring-[6px] ring-card shadow-[0_12px_32px_-12px_rgba(20,22,27,0.28)] sm:size-36">
+        <Image
+          src={HEADSHOT}
+          alt="Josh Kung"
+          fill
+          sizes="144px"
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      <h1 className="mt-8 font-display text-5xl font-semibold tracking-[-0.035em] sm:text-7xl">
+        Hi, I&apos;m Josh.
+      </h1>
+
+      <p className="mt-5 max-w-[34rem] text-[17px] leading-relaxed text-muted-foreground sm:text-lg">
+        {INTRO}
+      </p>
+
+      <div className="mt-9 flex flex-col items-center gap-4">
+        <div className="grid w-full max-w-xs grid-cols-2 gap-2.5 sm:flex sm:max-w-none sm:justify-center">
+          <Button asChild size="lg" className="col-span-2 h-11 rounded-full px-6 text-[15px]">
+            <Link href="/#contact">
+              <Mail />
+              Contact me
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="h-11 rounded-full bg-card px-5 text-[15px]">
+            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon className="size-4 text-[#0A66C2]" />
+              LinkedIn
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="h-11 rounded-full bg-card px-5 text-[15px]">
+            <a href={GITHUB} target="_blank" rel="noopener noreferrer">
+              <GitHubIcon className="size-4" />
+              GitHub
+            </a>
+          </Button>
+        </div>
+        <p className="flex items-center gap-2 text-sm text-muted-foreground">
+          <span className="size-2 rounded-full bg-emerald-500" aria-hidden="true" />
+          {LOCATION}, open to full-time roles from January 2027
         </p>
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-          <a className="pf-btn pf-btn--primary" href="#projects">
-            See the work →
-          </a>
-          <a className="pf-btn pf-btn--ghost" href="#experience">
-            Experience →
-          </a>
-        </div>
-      </Reveal>
-
-      <Reveal style={{ minWidth: 0, display: "flex", flexDirection: "column", gap: 14 }}>
-        {/* one bordered unit, same system as the terminal below it */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "stretch",
-            border: rule2,
-            background: "var(--pf-ink-2)",
-          }}
-        >
-          <div
-            style={{
-              width: 108,
-              flex: "0 0 108px",
-              position: "relative",
-              alignSelf: "stretch",
-              minHeight: 128,
-              overflow: "hidden",
-              borderRight: rule1,
-              background: "#f3f2f2",
-            }}
-          >
-            <Image
-              src={HEADSHOT}
-              alt="Josh Kung"
-              fill
-              sizes="108px"
-              priority
-              style={{ objectFit: "cover", objectPosition: "center", opacity: 0.92 }}
-            />
-          </div>
-          <div
-            style={{
-              flex: "1 1 150px",
-              minWidth: 0,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              gap: 12,
-              padding: "14px 16px",
-              fontFamily: mono,
-            }}
-          >
-            {[
-              ["based", "Boston, MA"],
-              ["prev", "Apple · TinyFish"],
-            ].map(([label, value]) => (
-              <div key={label} style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
-                <span
-                  style={{
-                    fontSize: 10,
-                    letterSpacing: ".14em",
-                    textTransform: "uppercase",
-                    color: paper(40),
-                    flex: "0 0 40px",
-                  }}
-                >
-                  {label}
-                </span>
-                <span style={{ fontSize: 12.5, color: "#f3f2f2", overflowWrap: "anywhere" }}>
-                  {value}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <Terminal />
-      </Reveal>
+      </div>
     </section>
   );
 }

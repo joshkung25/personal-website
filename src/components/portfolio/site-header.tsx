@@ -1,63 +1,42 @@
 import React from "react";
 import Link from "next/link";
-import { EMAIL, GITHUB, LINKEDIN } from "@/content/portfolio";
-import { mono, paper, rule2, SHELL } from "@/components/portfolio/styles";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { HEADSHOT } from "@/content/portfolio";
+
+const LINKS = [
+  { href: "/#projects", label: "Projects" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#experience", label: "Experience" },
+];
 
 export default function SiteHeader() {
   return (
-    <header
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 30,
-        background: "color-mix(in srgb, #171514 88%, transparent)",
-        backdropFilter: "blur(8px)",
-        borderBottom: rule2,
-      }}
-    >
-      <div
-        style={{
-          maxWidth: SHELL,
-          margin: "0 auto",
-          padding: "12px 24px",
-          display: "flex",
-          alignItems: "center",
-          gap: 20,
-          flexWrap: "wrap",
-        }}
-      >
+    <header className="sticky top-0 z-30 px-4 pt-4 sm:px-6">
+      <div className="mx-auto flex max-w-5xl items-center gap-2 rounded-full border bg-card/80 py-1.5 pr-1.5 pl-2 shadow-[0_1px_2px_rgba(20,22,27,0.04),0_8px_24px_-12px_rgba(20,22,27,0.12)] backdrop-blur-md">
         <Link
           href="/"
-          className="pf-toplink"
-          style={{ fontFamily: mono, fontSize: 13, color: paper(60), marginRight: "auto" }}
+          className="mr-auto flex items-center gap-2.5 rounded-full pr-3 text-[15px] font-medium outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
         >
-          josh@kung<span style={{ color: "var(--pf-accent-400)" }}> ~/portfolio</span> $
+          <span className="relative size-8 overflow-hidden rounded-full bg-muted">
+            <Image src={HEADSHOT} alt="" fill sizes="32px" className="object-cover" />
+          </span>
+          Josh Kung
         </Link>
-        <nav
-          style={{
-            display: "flex",
-            gap: 14,
-            flexWrap: "wrap",
-            fontFamily: mono,
-            fontSize: 12,
-          }}
-        >
-          <Link className="pf-toplink" href="/#projects">
-            Projects
-          </Link>
-          <Link className="pf-toplink" href="/#experience">
-            Experience
-          </Link>
-          <a className="pf-toplink" href={`mailto:${EMAIL}`}>
-            Email
-          </a>
-          <a className="pf-toplink" href={GITHUB} target="_blank" rel="noopener noreferrer">
-            GitHub ↗
-          </a>
-          <a className="pf-toplink" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-            LinkedIn ↗
-          </a>
+        <nav aria-label="Sections" className="hidden items-center sm:flex">
+          {LINKS.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors outline-none hover:bg-muted hover:text-foreground focus-visible:ring-[3px] focus-visible:ring-ring/50"
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
+        <Button asChild size="sm" className="h-9 rounded-full px-4">
+          <Link href="/#contact">Contact</Link>
+        </Button>
       </div>
     </header>
   );

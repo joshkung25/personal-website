@@ -1,35 +1,20 @@
 import React from "react";
-import { EMAIL } from "@/content/portfolio";
-import { mono, paper, rule2, SHELL } from "@/components/portfolio/styles";
+import { EMAIL, GITHUB, LINKEDIN } from "@/content/portfolio";
 
 export default function SiteFooter() {
   return (
-    <footer style={{ borderTop: rule2, marginTop: 32 }}>
-      <div
-        style={{
-          maxWidth: SHELL,
-          margin: "0 auto",
-          padding: "20px 24px 30px",
-          display: "flex",
-          gap: 20,
-          flexWrap: "wrap",
-          alignItems: "baseline",
-          fontFamily: mono,
-          fontSize: 11,
-          letterSpacing: ".1em",
-          textTransform: "uppercase",
-          color: paper(45),
-        }}
-      >
-        <span>exit 0 — © {new Date().getFullYear()} josh kung</span>
-        <span style={{ marginLeft: "auto" }}>
-          <a
-            href={`mailto:${EMAIL}`}
-            style={{ color: "var(--pf-accent-400)", textDecoration: "none" }}
-          >
-            {EMAIL}
-          </a>
-        </span>
+    <footer className="border-t">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-8 text-sm text-muted-foreground sm:px-6">
+        <span className="mr-auto">© {new Date().getFullYear()} Josh Kung</span>
+        <a className="hover:text-foreground" href={`mailto:${EMAIL}`}>
+          Email
+        </a>
+        <a className="hover:text-foreground" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a className="hover:text-foreground" href={GITHUB} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
       </div>
     </footer>
   );
